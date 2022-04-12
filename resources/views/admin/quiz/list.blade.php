@@ -3,7 +3,7 @@
     <div class="card">
         <div class="card-body">
             <h5 class="card-title">
-                <a href="{{route('quizzes.create')}}" class="btn btn-sm btn-primary"><i class="fa fa-plus"></i> Quiz oluştur</a>
+                <a href="{{route('quizzes.create')}}" class="btn btn-sm btn-primary"><i class="bi bi-plus-lg"></i> Quiz oluştur</a>
             </h5>
             <table class="table table-bordered">
                 <thead>
