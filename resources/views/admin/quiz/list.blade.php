@@ -31,4 +31,11 @@
             {{$quizzes->links()}}
         </div>
     </div>
+  <x-slot name="css">
+    @toastr_css
+  </x-slot>
+  <x-slot name="js">
+    @toastr_js
+    @toastr_render
+</x-slot>
 </x-app-layout>

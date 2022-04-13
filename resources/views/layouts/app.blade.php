@@ -11,6 +11,9 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+        @isset($css)
+            {{ $css }}
+        @endif
 
         @livewireStyles
 
@@ -37,13 +40,30 @@
             <!-- Page Content -->
             <div class="py-6">
                 <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                        {{ $slot }}
+                    @if ($errors->any())
+                    <div class="alert alert-warning">
+                        @foreach ($errors->all() as $error)
+                            <li>{{$error}}</li>
+                        @endforeach
+                    </div>
+                    @endif
+
+                    @if(session('success'))
+                        <div class="alert alert-success">
+                            <i class="fa fa-check"></i>
+                            {{session('success')}}
+                        </div>
+                    @endif
+
+                    {{ $slot }}
                 </div>
             </div>
         </div>
 
         @stack('modals')
-        {{-- {{ $js }} --}}
+        @isset($js)
+            {{ $js }} 
+        @endif
         @livewireScripts
     </body>
 </html>
